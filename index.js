@@ -15,43 +15,43 @@ var lvl2Score = 0;
 lvl1 = [
   {
     q: "Ron, Fred, George and Percy stayed with Harry for his first Christmas at Hogwarts because their parents were visiting Bill in Egypt",
-    a: "false"
+    a: "FALSE"
   },
   {
     q: "Harry’s first year Christmas cracker gifts included a grow-your-own-warts kit",
-    a: "true"
+    a: "TRUE"
   },
   {
     q: "The Great Hall was always decorated with 10 Christmas trees",
-    a: "false"
+    a: "FALSE"
   },
   {
     q: "In the books, Harry’s Firebolt was given to him as a present on his third Christmas at Hogwarts",
-    a: "true"
+    a: "TRUE"
   },
   {
     q: "The Yule Ball took place at 8pm on Christmas Day",
-    a: "true"
+    a: "TRUE"
   },
   {
     q: "When suits of armour were bewitched to sing Christmas songs ahead of the Yule Ball, the carol mentioned was ‘God Rest Ye Merry Gentlemen’",
-    a: "false"
+    a: "FALSE"
   },
   {
     q: "In Order of the Phoenix, Hermione knitted Kreacher a woollen scarf for Christmas",
-    a: "false"
+    a: "FALSE"
   },
   {
     q: "Luna Lovegood believed that mistletoe was infested with Nargles",
-    a: "true"
+    a: "TRUE"
   },
   {
     q: "When Harry spent Christmas at The Burrow in Half-Blood Prince, the angel on top of the tree was actually a stupefied garden gnome",
-    a: "true"
+    a: "TRUE"
   },
   {
     q: "In Deathly Hallows, it was Christmas Day when Harry and Hermione visited Harry’s parents’ graves",
-    a: "false"
+    a: "FALSE"
   }
 ];
 
@@ -64,24 +64,24 @@ lvl1 = [
 
 lvl2 = [
   {
-    q: "Snape was Harry’s sixth Defence Against the Dark Arts teacher",
-    a: "true"
+    q: "When Harry was unexpectedly made the Gryffindor Quidditch team’s Seeker, he was the youngest player in how long?",
+    a: "CENTURY"
   },
   {
-    q: "Marvolo Gaunt’s ring was the first Horcrux to be created by Voldemort",
-    a: "false"
+    q: "How many points did Dumbledore award Neville at the end of Philosopher’s Stone, meaning Gryffindor won the House Cup?",
+    a: "TEN"
   },
   {
-    q: "“Mad-Eye” Moody’s magical glass eye was made of Foe Glass",
-    a: "false"
+    q: "What colour was Ron’s bedroom at The Burrow?",
+    a: "ORANGE"
   },
   {
-    q: "Draco Malfoy used a Hand of Glory to help Death Eaters enter Hogwarts",
-    a: "true"
+    q: "What item of clothing did Harry ensure Lucius Malfoy gave Dobby in order to free him?",
+    a: "SOCK"
   },
   {
-    q: "When Voldemort approached Dumbledore to request the Defence Against the Dark Arts teacher job, the existing teacher was Griselda Marchbanks",
-    a: "false"
+    q: "What did Romilda Vane think Harry had tattooed on his chest?",
+    a: "HIPPODRIFF"
   }
 ]
 
@@ -90,7 +90,7 @@ lvl2 = [
 
 
 function quiz1(q, a, i) {
-  if (a === q[i].a) {
+  if (a.toUpperCase() === q[i].a.toUpperCase()) {
     console.log(chalk.greenBright.bold("Correct! :)"));
     lvl1Score++;
   } else {
@@ -103,7 +103,7 @@ function quiz1(q, a, i) {
 
 
 function quiz2(q, a, i) {
-  if (a === q[i].a) {
+  if (a.toUpperCase() === q[i].a.toUpperCase()) {
     console.log(chalk.greenBright.bold("Correct! :)"));
     lvl2Score++;
   } else {
@@ -125,7 +125,7 @@ console.log("Hey " + chalk.blue.bold(userName) + "!");
 console.log("-----------------------------");
 console.log("Answer should be in 'true' or 'false' format");
 console.log("-----------------------------");
-console.log("Level-1 :");
+console.log(chalk.underline("Level-1 :"));
 console.log("-----------------------------");
 
 
@@ -143,7 +143,8 @@ if (lvl1Score >= 5) {
   console.log("Yay!");
   console.log("You are eligible for level-2 of the quiz");
   console.log("-----------------------------");
-  console.log("Level-2 :");
+  console.log(chalk.underline("Level-2 :"));
+  console.log("Answer in one word");
   console.log("-----------------------------");
   for (let i = 0; i < 5; i++) {
     let userAns = readlineSync.question(lvl2[i].q + "\nAnswer : ");
